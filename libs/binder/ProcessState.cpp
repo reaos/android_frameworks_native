@@ -225,12 +225,15 @@ bool ProcessState::becomeContextManager()
 {
     std::unique_lock<std::mutex> _l(mLock);
 
+#if 0
     flat_binder_object obj {
         .flags = FLAT_BINDER_FLAG_TXN_SECURITY_CTX,
     };
 
     int result = ioctl(mDriverFD, BINDER_SET_CONTEXT_MGR_EXT, &obj);
+#endif
 
+    int result = 1;
     // fallback to original method
     if (result != 0) {
         android_errorWriteLog(0x534e4554, "121035042");

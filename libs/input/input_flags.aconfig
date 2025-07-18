@@ -1,0 +1,257 @@
+package: "com.android.input.flags"
+container: "system"
+
+flag {
+  name: "enable_outbound_event_verification"
+  namespace: "input"
+  description: "Set to true to enable crashing whenever bad outbound events are detected inside InputTransport"
+  bug: "271455682"
+}
+
+flag {
+  name: "enable_inbound_event_verification"
+  namespace: "input"
+  description: "Set to true to enable crashing whenever bad inbound events are going into InputDispatcher"
+  bug: "271455682"
+}
+
+flag {
+  name: "enable_button_state_verification"
+  namespace: "input"
+  description: "Set to true to enable crashing whenever bad inbound events are going into InputDispatcher"
+  bug: "392870542"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "enable_input_event_tracing"
+  namespace: "input"
+  description: "Set to true to enable input event tracing, including always-on tracing on non-user builds"
+  bug: "210460522"
+}
+
+flag {
+  name: "enable_multi_device_input"
+  namespace: "input"
+  description: "Set to true to enable multi-device input: touch and stylus can be active at the same time, but in different windows"
+  bug: "211379801"
+}
+
+flag {
+  name: "deprecate_split_touch_apis"
+  namespace: "input"
+  description: "Deprecate all public APIs related to split touch because now all windows behave as if split touch is permanently enabled and there's no way for a window to disable split touch."
+  bug: "239934827"
+}
+
+flag {
+  name: "a11y_crash_on_inconsistent_event_stream"
+  namespace: "accessibility"
+  description: "Brings back fatal logging for inconsistent event streams originating from accessibility."
+  bug: "299977100"
+}
+
+flag {
+  name: "enable_v2_touchpad_typing_palm_rejection"
+  namespace: "input"
+  description: "In addition to touchpad palm rejection v1, v2 will also cancel ongoing move gestures while typing and add delay in re-enabling the tap to click."
+  bug: "301055381"
+}
+
+flag {
+  name: "disable_reject_touch_on_stylus_hover"
+  namespace: "input"
+  description: "Disable touch rejection when the stylus hovers the screen"
+  bug: "301216095"
+}
+
+flag {
+  name: "override_key_behavior_permission_apis"
+  is_exported: true
+  namespace: "input"
+  description: "enable override key behavior permission APIs"
+  bug: "309018874"
+}
+
+flag {
+  name: "rate_limit_user_activity_poke_in_dispatcher"
+  namespace: "input"
+  description: "Move user-activity poke rate-limiting from PowerManagerService to InputDispatcher."
+  bug: "320499729"
+}
+
+flag {
+  name: "input_device_view_behavior_api"
+  is_exported: true
+  namespace: "input"
+  description: "Controls the API to provide InputDevice view behavior."
+  bug: "246946631"
+}
+
+flag {
+  name: "enable_prediction_pruning_via_jerk_thresholding"
+  namespace: "input"
+  description: "Enable prediction pruning based on jerk thresholds."
+  bug: "266747654"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "device_associations"
+  namespace: "input"
+  description: "Binds InputDevice name and InputDevice description against display unique id."
+  bug: "324075859"
+}
+
+flag {
+  name: "enable_multi_device_same_window_stream"
+  namespace: "input"
+  description: "Allow multiple input devices to be active in the same window simultaneously"
+  bug: "330752824"
+}
+
+flag {
+  name: "allow_transfer_of_entire_gesture"
+  namespace: "input"
+  description: "When calling 'transferTouchGesture', the entire gesture (including new POINTER_DOWN events from the same device) will be automatically transferred to the destination window"
+  bug: "397979572"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "show_pointers_for_partial_screenshare"
+  namespace: "input"
+  description: "Show touch and pointer indicators when mirroring a single task"
+  bug: "310179437"
+}
+
+flag {
+  name: "enable_per_device_input_latency_metrics"
+  namespace: "input"
+  description: "Capture input latency metrics on a per device granular level using histograms."
+  bug: "270049345"
+}
+
+flag {
+  name: "collect_palm_rejection_quality_metrics"
+  namespace: "input"
+  description: "Collect quality metrics on framework palm rejection."
+  bug: "341717757"
+}
+
+flag {
+  name: "enable_input_policy_profile"
+  namespace: "input"
+  description: "Apply input policy profile for input threads."
+  bug: "347122505"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "disable_touch_input_mapper_pointer_usage"
+  namespace: "input"
+  description: "Disable the PointerUsage concept in TouchInputMapper since the old touchpad stack is no longer used."
+  bug: "281840344"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "keyboard_repeat_keys"
+  namespace: "input"
+  description: "Allow user to enable key repeats or configure timeout before key repeat and key repeat delay rates."
+  bug: "336585002"
+}
+
+flag {
+  name: "rotary_input_telemetry"
+  namespace: "wear_frameworks"
+  description: "Enable telemetry for rotary input"
+  bug: "370353565"
+}
+
+flag {
+  name: "set_input_device_kernel_wake"
+  namespace: "input"
+  description: "Set input device's power/wakeup sysfs node"
+  bug: "372812925"
+}
+
+flag {
+  name: "enable_alphabetic_keyboard_wake"
+  namespace: "input"
+  description: "Enable wake from alphabetic keyboards."
+  bug: "352856881"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "connected_displays_cursor"
+  namespace: "lse_desktop_experience"
+  description: "Allow cursor to transition across multiple connected displays"
+  bug: "362719483"
+}
+
+flag {
+  name: "connected_displays_associated_display_cursor_bugfix"
+  namespace: "lse_desktop_experience"
+  description: "Apply some rules to define associated display cursor behavior in connected displays"
+  bug: "396568321"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "scale_cursor_speed_with_dpi"
+  namespace: "lse_desktop_experience"
+  description: "Scale the cursor speed based on display density"
+  bug: "367662715"
+}
+
+flag {
+  name: "use_cloned_screen_coordinates_as_raw"
+  namespace: "input"
+  description: "Use the cloned window's layer stack (screen) space as the raw coordinate space for input going to clones"
+  bug: "377846505"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "prevent_merging_input_pointer_devices"
+  namespace: "desktop_input"
+  description: "Prevent merging input sub-devices that provide pointer input streams"
+  bug: "389689566"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "enable_display_topology_validation"
+  namespace: "input"
+  description: "Set to true to enable display topology validation"
+  bug: "401219231"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
+
+flag {
+  name: "use_topology_aware_flag"
+  namespace: "input"
+  description: "Require apps to use topology-aware flag to receive cross-display gestures"
+  bug: "401220484"
+  metadata {
+    purpose: PURPOSE_BUGFIX
+  }
+}
